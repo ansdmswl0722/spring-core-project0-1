@@ -1,4 +1,4 @@
-package com.nhnacademy.task.config;
+package com.nhnacademy.task;
 
 import com.nhnacademy.task.DoorayMessageSender;
 import com.nhnacademy.task.MessageSendService;
