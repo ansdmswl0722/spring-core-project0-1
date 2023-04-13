@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+        <bean id="loggingAspect" class="com.nhnacademy.task.aspect.LoggingAspect"></bean>
+        <aop:config>
+                <aop:aspect  ref="loggingAspect">
+                        <aop:pointcut id="theExecutionOfMessageSendServiceMethod" expression="execution(* *.sendMessage(..))"/>
+                        <aop:around pointcut-ref="theExecutionOfMessageSendServiceMethod" method="targetDooraySender"/>
+                </aop:aspect>
+        </aop:config>
+
+        <bean id="doorayMessageSender" class="com.nhnacademy.task.DoorayMessageSender">
+                <constructor-arg ref="doorayHookSender"/>
+        </bean>
+        <bean id="resttemplate" class="org.springframework.web.client.RestTemplate"></bean>
+        <bean id="doorayHookSender" class="com.nhn.dooray.client.DoorayHookSender">
+                <constructor-arg ref="resttemplate"/>
+                <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3514081992077299709/HOTTporbR6CBAVodltB-Dw"/>
+        </bean>
+        <bean id="messageSendService" class="com.nhnacademy.task.MessageSendService">
+                <constructor-arg ref="doorayMessageSender"/>
+        </bean>
+</beans>
