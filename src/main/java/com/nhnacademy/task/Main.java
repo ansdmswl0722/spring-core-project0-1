@@ -1,10 +1,10 @@
 package com.nhnacademy.task;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        try(ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")){
+        try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.nhnacademy.task")){
             MessageSendService messageSendService = context.getBean("messageSendService",MessageSendService.class);
             messageSendService.doSendMessage();
         }catch (Exception e){

@@ -1,9 +1,14 @@
 package com.nhnacademy.task;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("messageSendService")
 public class MessageSendService {
 
     private final MessageSender messageSender;
 
+    @Autowired
     public MessageSendService(MessageSender messageSender) {
         this.messageSender = messageSender;
     }
