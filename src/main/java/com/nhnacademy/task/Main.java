@@ -1,9 +1,5 @@
-package com.nhnacademy.task.config;
+package com.nhnacademy.task;
 
-import com.nhnacademy.task.DoorayMessageSender;
-import com.nhnacademy.task.MessageSendService;
-import com.nhnacademy.task.MessageSender;
-import com.nhnacademy.task.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {

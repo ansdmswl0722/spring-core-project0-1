@@ -4,13 +4,13 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
-                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+                %msg%n
             </pattern>
         </encoder>
     </appender>
 
-    <logger name="com.nhnacademy.task.aspect.LoggingAspect" level="INFO" />
-    <root level="INFO">
+    <logger name="com.nhnacademy.task.aspect.LoggingAspect" level="INFO"/>
+    <root level="OFF">
         <appender-ref ref="STDOUT" />
     </root>
 

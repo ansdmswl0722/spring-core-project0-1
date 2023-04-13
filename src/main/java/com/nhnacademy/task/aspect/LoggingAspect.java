@@ -2,12 +2,14 @@ package com.nhnacademy.task.aspect;
 
 import com.nhnacademy.task.User;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+@Aspect
 public class LoggingAspect {
-
     private final static Logger log = LoggerFactory.getLogger(LoggingAspect.class);
+    @Around("@annotation(com.nhnacademy.task.ElapsedTimeLog)")
     public Object targetDooraySender(ProceedingJoinPoint pjp) throws Throwable {
         long startTime = System.currentTimeMillis();
         String className = pjp.getTarget().getClass().getName();

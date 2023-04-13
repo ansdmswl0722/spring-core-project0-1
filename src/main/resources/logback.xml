@@ -9,8 +9,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.nhnacademy.task.aspect.LoggingAspect" level="INFO" />
-    <root level="INFO">
+    <logger name="com.nhnacademy.task.aspect.LoggingAspect" level="INFO"/>
+    <root level="OFF">
         <appender-ref ref="STDOUT" />
     </root>
 
